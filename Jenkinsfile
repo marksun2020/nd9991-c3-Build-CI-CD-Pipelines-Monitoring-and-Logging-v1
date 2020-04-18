@@ -26,7 +26,7 @@ pipeline {
                     "AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}",
                     "AWS_DEFAULT_REGION=${env.AWS_DEFAULT_REGION}"]) {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'static-jenkins-pipeline')
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'project3-jenkins-ci-cd')
                   }
               }
          }
