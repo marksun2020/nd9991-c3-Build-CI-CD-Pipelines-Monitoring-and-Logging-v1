@@ -10,17 +10,18 @@ pipeline {
                  '''
              }
          }
-         stage('Lint HTML') {
+         /*stage('Lint HTML') {
               steps {
                   sh 'tidy -q -e *.html'
               }
-         }
+         }*/
+          // it doesnot work for me :(
          /* stage('Security Scan') {
               steps { 
                  aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
               }
          }  */      
-         stage('Upload to AWS') {
+         /*stage('Upload to AWS') {
               steps {
                   withEnv(["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}",
                     "AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_ACCESS_KEY}",
@@ -29,6 +30,6 @@ pipeline {
                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'project3-jenkins-ci-cd')
                   }
               }
-         }
+         }*/
      }
 }
