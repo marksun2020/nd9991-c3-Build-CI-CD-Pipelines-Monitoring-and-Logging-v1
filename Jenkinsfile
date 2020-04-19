@@ -15,12 +15,12 @@ pipeline {
                   sh 'tidy -q -e *.html'
               }
          }*/
-          // it doesnot work for me :(
-         /* stage('Security Scan') {
+         // it doesnot work for me :(
+          stage('Security Scan') {
               steps { 
                  aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
               }
-         }  */      
+         }
          stage('Upload to AWS') {
               steps {
                   withEnv(["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY_ID}",
